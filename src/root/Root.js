@@ -13,7 +13,7 @@ export default class Root extends Component {
       <MuiThemeProvider theme={theme}>
         <Provider store={store}>
           <ConnectedRouter history={history}>
-            <App />
+            <App store={store} />
           </ConnectedRouter>
         </Provider>
       </MuiThemeProvider>

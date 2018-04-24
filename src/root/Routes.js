@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 // import WithAuth, { userIsNotAuthenticated } from './Auth'
 import StartingPage from '../modules/StartingPage'
+import Events from '../modules/Events'
 
 export class Routes extends Component {
   // shouldComponentUpdate (nextProps) {
@@ -17,39 +18,23 @@ export class Routes extends Component {
   //   return nextLogedIn !== isLoggedIn || pathname !== nextPathName
   // }
 
-  render () {
-    return (
-      <Switch>
-        <Route exact path='/' component={StartingPage} />
-        {/*<WithAuth>*/}
-          {/*<Route path='/about' component={AboutPage} />*/}
-          {/*<Route path='/dialog' component={DialogPage} />*/}
-          {/*<Route path='/users' component={UsersList} />*/}
-          {/*<Route path='/user/:userId' component={UserDetails} />*/}
-          {/*<Route path='/products' component={ProductsList} />*/}
-          {/*<Route path='/buyers' component={BuyersList} />*/}
-          {/*<Route path='/wholesalers' component={WholesalersList} />*/}
-          {/*<Route path='/fileUpload' component={FileUpload} />*/}
-          {/*<Route*/}
-            {/*path='/wholesaler/:wholesalersId'*/}
-            {/*component={WholesalerDetails}*/}
-          {/*/>*/}
-          {/*<Route path='/cloud-functions' component={CloudFunctions} />*/}
-          {/*<Route path='/files' component={FilesList} />*/}
-          {/*<Route path='/bigQuery' component={BigQuery} />*/}
-          {/*<Route path='/mongoUpdate' component={MongoUpdate} />*/}
-        {/*</WithAuth>*/}
-        {/*<Route component={NotFoundPage} />*/}
-      </Switch>
-    )
-  }
+    render () {
+        const {showStartingPage} = this.props
+        return (
+            <Switch>
+                <Route exact path='/' component={showStartingPage ? StartingPage : Events} />
+                <Route path='/events' component={Events}/>
+            </Switch>
+        )
+    }
 }
 
 export default withRouter(
   connect(
-    state => ({
-      // session: state.session,
-      routing: state.routing
+      ({routing, session, startingPageState: {showStartingPage}}) => ({
+      // session,
+        showStartingPage,
+        routing
     }),
     dispatch => ({
       push: bindActionCreators(push, dispatch)

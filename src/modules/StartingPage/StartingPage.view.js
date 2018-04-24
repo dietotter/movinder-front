@@ -5,8 +5,6 @@ import SvgIcon from 'material-ui/SvgIcon';
 
 const styles = theme => ({
     container: {
-        width: '100%',
-        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -15,6 +13,11 @@ const styles = theme => ({
 })
 
 class StartingPage extends Component {
+
+    togglePage() {
+        const {toggleStartingPage} = this.props
+        toggleStartingPage(false)
+    }
 
     render () {
         const {classes} = this.props
@@ -28,7 +31,7 @@ class StartingPage extends Component {
                     white
                     long
                     largeFont
-                    onClick={() => {console.log('======== clicked kek =========')}}
+                    onClick={this.togglePage.bind(this)}
                 >
                     Start
                 </SharedButton>

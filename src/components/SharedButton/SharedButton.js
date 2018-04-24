@@ -58,12 +58,24 @@ const styles = theme => ({
     },
     noTextTransform: {
         textTransform: 'none',
+    },
+    underlined: {
+        position: 'relative',
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            bottom: 0,
+            left: 8,
+            right: 8,
+            borderBottom: `2px solid ${commonStyles.primaryColor}`
+        }
     }
 })
 
 class SharedButton extends Component {
     render() {
-        const { onClick, classes, white, noBorder, long, short, largeFont, noTextTransform, disabled, children } = this.props
+        const { onClick, classes, white, noBorder, long, short, largeFont, noTextTransform, underlined, disabled, children } = this.props
 
         return (
             <Button
@@ -72,7 +84,7 @@ class SharedButton extends Component {
                 disabled={disabled}
                 className={classNames(classes.common, white ? classes.white : classes.blue, noBorder && classes.noBorder,
                     noTextTransform && classes.noTextTransform, largeFont && classes.largeFont,
-                    long && classes.long, short && classes.short)}
+                    long && classes.long, short && classes.short, underlined && classes.underlined)}
                 children={children}
             />
         )

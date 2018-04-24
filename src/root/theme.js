@@ -13,23 +13,46 @@ export default createMuiTheme({
 })
 
 export const appBar = theme => ({
-  appBar: {
-    position: 'fixed',
-  },
-  appBarFull: {
-    position: 'fixed',
-    marginLeft: 0,
-    [theme.breakpoints.up('md')]: {
-      width: '100%'
+    appBar: {
+        position: 'fixed',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        margin: 'auto',
+        left: '5%',
+        right: '5%',
+        height: 128
+    },
+    images: {
+        position: 'relative',
+    },
+    pointerClick: {
+        cursor: 'pointer'
+    },
+    navigation: {
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+    },
+    imageMargin: {
+        marginLeft: theme.spacing.unit * 2
+    },
+    appBarFull: {
+        position: 'fixed',
+        marginLeft: 0,
+        [theme.breakpoints.up('md')]: {
+           width: '100%'
+        }
+    },
+    flex: {
+        flex: 1
+    },
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20
     }
-  },
-  flex: {
-    flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
 })
 
 export const rootStyle = theme => ({
@@ -42,7 +65,8 @@ export const rootStyle = theme => ({
   appFrame: {
     position: 'relative',
     display: 'flex',
-    width: '100%'
+      marginLeft: '5%',
+      marginRight: '5%',
   },
   content: {
     margin: 'auto',
@@ -51,9 +75,9 @@ export const rootStyle = theme => ({
     overflowX: 'hidden',
     // backgroundColor: theme.palette.background.default,
     width: '100%',
-    padding: theme.spacing.unit * 3,
+    // padding: theme.spacing.unit * 3,
     height: '100%',
-    // marginTop: 56,
+    marginTop: 150,
     // [theme.breakpoints.up('sm')]: {
     //   marginTop: 64
     // }
