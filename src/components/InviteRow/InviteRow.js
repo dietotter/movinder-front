@@ -12,7 +12,7 @@ import commonStyles from '../../styles/commonStyles'
 const styles = theme => ({
     container: {
         backgroundColor: commonStyles.secondaryColor,
-        borderRadius: 4,
+        borderRadius: 8,
         alignItems: 'center',
         height: 132
     },

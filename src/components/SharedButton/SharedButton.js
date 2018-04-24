@@ -11,7 +11,7 @@ const styles = theme => ({
     },
     common: {
         boxShadow: 'none',
-        borderRadius: 4,
+        borderRadius: 8,
         border: '1px solid',
         padding: '0px 32px'
     },
