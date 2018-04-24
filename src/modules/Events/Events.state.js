@@ -1,21 +1,33 @@
 import createReducer from '../../utils/createReducer'
 import { success, fail, pending } from '../../utils/promiseHelper'
-import { GET_ALL_INVITATIONS } from "../../redux/actionTypes";
+import { GET_ALL_INVITATIONS } from "../../redux/actionTypes"
+import InvitationService from '../../services/InvitationService'
 
 const initialState = {
     events: []
 }
 
 const getAllInvitations = () /* true or false */ => ({
-    type: GET_ALL_INVITATIONS
+    type: GET_ALL_INVITATIONS,
+    payload: InvitationService.getAllInvitations()
 })
 
 export const eventsReducer = createReducer(
     {
-        [GET_ALL_INVITATIONS]: (state, { invitations }) => ({
-            ...state,
-            events: invitations
-        })
+        [success(GET_ALL_INVITATIONS)]: (state, {data}) => {
+            const { success, invitations } = data
+            if (!success) {
+                return {
+                    ...state,
+                    events: []
+                }
+            }
+
+            return {
+                ...state,
+                events: invitations
+            }
+        }
     },
     initialState
 )

@@ -22,7 +22,9 @@ export const appBar = theme => ({
         margin: 'auto',
         left: '5%',
         right: '5%',
-        height: 128
+        height: 128,
+        zIndex: 2,
+        backgroundColor: 'white'
     },
     images: {
         position: 'relative',
