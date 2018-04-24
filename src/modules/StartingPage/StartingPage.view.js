@@ -9,13 +9,11 @@ const styles = theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 'calc(100vh - 150px)',
-        marginTop: '-90px',
         '&:after': {
             content: '""',
             left: 0,
             width: '100%',
-            top: '250px',
+            top: '300px',
             position: 'fixed',
             height: 'calc(100vh - 250px)',
             zIndex: -1,
@@ -28,7 +26,8 @@ const styles = theme => ({
         fontWeight: 300,
         lineHeight: '36px',
         textTransform: 'uppercase',
-        margin: 0
+        margin: 0,
+        marginBottom: 20
     }
 })
 
