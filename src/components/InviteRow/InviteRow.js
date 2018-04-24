@@ -12,7 +12,7 @@ import commonStyles from '../../styles/commonStyles'
 const styles = theme => ({
     container: {
         backgroundColor: commonStyles.secondaryColor,
-        borderRadius: 4,
+        borderRadius: 8,
         alignItems: 'center',
         height: 132
     },
@@ -41,12 +41,12 @@ const InfoRow = ({className, iconSrc, label, title}) => (
 
 class InviteRow extends Component {
     render() {
-        const { onClick, classes, details } = this.props
+        const { onClick, classes, details, className } = this.props
 
         const { name, movie, cinema } = details
 
         return (
-            <Grid container className={classes.container}>
+            <Grid container className={classNames(classes.container, className)}>
                 <Grid item xs={2}>
                     <Avatar
                         src='http://via.placeholder.com/250x250'
