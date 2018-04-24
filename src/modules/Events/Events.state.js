@@ -1,25 +1,25 @@
 import createReducer from '../../utils/createReducer'
-import { TOGGLE_STARTING_PAGE } from "../../redux/actionTypes";
+import { success, fail, pending } from '../../utils/promiseHelper'
+import { GET_ALL_INVITATIONS } from "../../redux/actionTypes";
 
 const initialState = {
-    showStartingPage: true
+    events: []
 }
 
-const toggleStartingPage = showStartingPage /* true or false */ => ({
-    type: TOGGLE_STARTING_PAGE,
-    payload: { showStartingPage }
+const getAllInvitations = () /* true or false */ => ({
+    type: GET_ALL_INVITATIONS
 })
 
-export const startingPageReducer = createReducer(
+export const eventsReducer = createReducer(
     {
-        [TOGGLE_STARTING_PAGE]: (state, { showStartingPage }) => ({
+        [GET_ALL_INVITATIONS]: (state, { invitations }) => ({
             ...state,
-            showStartingPage
+            events: invitations
         })
     },
     initialState
 )
 
 export const actions = {
-    toggleStartingPage
+    getAllInvitations
 }

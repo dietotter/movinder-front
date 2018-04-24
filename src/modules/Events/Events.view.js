@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import SharedButton from '../../components/SharedButton'
+import InviteRow from '../../components/InviteRow'
+
 import withStyles from 'material-ui/styles/withStyles'
 
 const styles = theme => ({
@@ -18,7 +20,7 @@ class EventsView extends Component {
 
         return (
             <div className={classes.container}>
-                kek
+                <InviteRow/>
             </div>
         )
     }
