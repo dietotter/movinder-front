@@ -2,7 +2,11 @@ body {
   min-width: 320px;
   margin: 0 auto;
   font-family: Roboto, sans-serif;
-  background-color: #fafafa;
+  background-color: #fff;
+}
+
+body * {
+  letter-spacing: 1px;
 }
 
 #mainContainer {

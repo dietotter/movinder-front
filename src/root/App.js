@@ -3,23 +3,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import { rootStyle as styles } from './theme'
+import Routes from './Routes'
 
 export class App extends React.Component {
   render () {
     const { classes } = this.props
     return (
       <div className={classes.root}>
-        {/*<div className={classes.appFrame}>*/}
+        <div className={classes.appFrame}>
           {/*<ErrorBoundary>*/}
             {/*<AppBar />*/}
           {/*</ErrorBoundary>*/}
           {/*<div className={classes.content}>*/}
-            {/*<Routes />*/}
+            <Routes />
           {/*</div>*/}
           {/*<ErrorBoundary>*/}
             {/*<DialogRoot />*/}
           {/*</ErrorBoundary>*/}
-        {/*</div>*/}
+        </div>
         {/*<ErrorBoundary>*/}
           {/*<Snackbar />*/}
         {/*</ErrorBoundary>*/}

@@ -46,17 +46,16 @@ export const rootStyle = theme => ({
   },
   content: {
     margin: 'auto',
-    maxWidth: '900px',
-    // padding: '16px',
+    // maxWidth: '900px',
     position: 'relative',
     overflowX: 'hidden',
-    backgroundColor: theme.palette.background.default,
+    // backgroundColor: theme.palette.background.default,
     width: '100%',
     padding: theme.spacing.unit * 3,
     height: '100%',
-    marginTop: 56,
-    [theme.breakpoints.up('sm')]: {
-      marginTop: 64
-    }
+    // marginTop: 56,
+    // [theme.breakpoints.up('sm')]: {
+    //   marginTop: 64
+    // }
   }
 })
