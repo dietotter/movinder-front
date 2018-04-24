@@ -45,11 +45,13 @@ class InviteRow extends Component {
 
         const { name, movie, cinema } = details
 
+        const avatarSrc = (name === 'test' || name === 'nik') ? `../../styles/placeholders/${name}.jpg` : null
+
         return (
             <Grid container className={classNames(classes.container, className)}>
                 <Grid item xs={2}>
                     <Avatar
-                        src='http://via.placeholder.com/250x250'
+                        src={avatarSrc || 'http://via.placeholder.com/250x250'}
                         className={classes.avatar}
                     />
                 </Grid>
