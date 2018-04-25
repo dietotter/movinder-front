@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import SharedButton from '../../components/SharedButton'
 import withStyles from 'material-ui/styles/withStyles'
-import SvgIcon from 'material-ui/SvgIcon';
 
 const styles = theme => ({
     container: {
@@ -45,7 +44,7 @@ class StartingPage extends Component {
             <div className={classes.container}>
                 <h2
                     className={classes.title}>
-                    Welcom To
+                    Welcome To
                 </h2>
                 <img
                     height = '80'

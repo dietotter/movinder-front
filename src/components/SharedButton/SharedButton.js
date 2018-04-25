@@ -75,7 +75,7 @@ const styles = theme => ({
 
 class SharedButton extends Component {
     render() {
-        const { onClick, classes, white, noBorder, long, short, largeFont, noTextTransform, underlined, disabled, children } = this.props
+        const { onClick, classes, white, noBorder, long, short, largeFont, noTextTransform, underlined, disabled, children, className } = this.props
 
         return (
             <Button
@@ -84,7 +84,7 @@ class SharedButton extends Component {
                 disabled={disabled}
                 className={classNames(classes.common, white ? classes.white : classes.blue, noBorder && classes.noBorder,
                     noTextTransform && classes.noTextTransform, largeFont && classes.largeFont,
-                    long && classes.long, short && classes.short, underlined && classes.underlined)}
+                    long && classes.long, short && classes.short, underlined && classes.underlined, className)}
                 children={children}
             />
         )

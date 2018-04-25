@@ -83,5 +83,10 @@ export const rootStyle = theme => ({
     // [theme.breakpoints.up('sm')]: {
     //   marginTop: 64
     // }
+  },
+  dialogContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
   }
 })

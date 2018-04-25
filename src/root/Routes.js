@@ -6,16 +6,23 @@ import { bindActionCreators } from 'redux'
 // import WithAuth, { userIsNotAuthenticated } from './Auth'
 import StartingPage from '../modules/StartingPage'
 import Events from '../modules/Events'
+import * as authActions from '../modules/Authorization'
 
 export class Routes extends Component {
   // shouldComponentUpdate (nextProps) {
   //   const {
-  //     session: { isLoggedIn: nextLogedIn },
-  //     location: { pathname: nextPathName }
+  //     // session: { isLoggedIn: nextLogedIn },
+  //     location: { pathname: nextPathName },
+  //       authActions: {showAuth, changeAuthType }
   //   } = nextProps
-  //   const { session: { isLoggedIn }, location: { pathname } } = this.props
+  //   const { /*session: { isLoggedIn },*/ location: { pathname } } = this.props
   //   /* returns true only when pathname change happen (we move to another page) or signIn state changes */
-  //   return nextLogedIn !== isLoggedIn || pathname !== nextPathName
+  //   if (nextPathName === '/login') {
+  //       changeAuthType('login')
+  //       showAuth()
+  //       return false
+  //   }
+  //   return /*nextLogedIn !== isLoggedIn ||*/ pathname !== nextPathName
   // }
 
     render () {
@@ -37,7 +44,8 @@ export default withRouter(
         routing
     }),
     dispatch => ({
-      push: bindActionCreators(push, dispatch)
+      push: bindActionCreators(push, dispatch),
+        authActions: bindActionCreators(authActions, dispatch)
     })
   )(Routes)
 )

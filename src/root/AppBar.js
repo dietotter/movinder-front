@@ -7,7 +7,8 @@ import { push } from 'react-router-redux'
 import {map} from 'lodash'
 import SharedButton from '../components/SharedButton'
 import classNames from 'classnames'
-
+import {actions as authActions} from '../modules/Authorization'
+import {actions as sessionActions} from '../redux/sessionState'
 
 export class AppBarComponent extends Component {
     constructor (props, context) {
@@ -15,7 +16,8 @@ export class AppBarComponent extends Component {
     }
 
     render () {
-        const { classes, push, showStartingPage } = this.props
+        const { classes, push, showStartingPage, authActions: {showAuth, changeAuthType},
+            session: {isLoggedIn}, sessionActions: {signOut} } = this.props
 
         let nav = [{
             route: 'events',
@@ -31,7 +33,7 @@ export class AppBarComponent extends Component {
             title: 'settings'
         }, {
             route: 'login',
-            title: 'log in'
+            title: isLoggedIn ? 'log out' : 'log in'
         }]
 
         return (
@@ -48,7 +50,15 @@ export class AppBarComponent extends Component {
                                 noBorder
                                 short
                                 underlined
-                                onClick={() => push(`/${route}`)}
+                                onClick={route !== 'login' ? () => push(`/${route}`) : () => {
+                                    if (isLoggedIn) {
+                                        signOut()
+                                    }
+                                    else {
+                                        changeAuthType('login')
+                                        showAuth()
+                                    }
+                                }}
                                 key={i}
                             >
                                 {title}
@@ -63,11 +73,13 @@ export class AppBarComponent extends Component {
 
 export default withStyles(styles)(
     connect(
-        ({startingPageState: {showStartingPage}}) => ({
-            showStartingPage
+        ({startingPageState: {showStartingPage}, session}) => ({
+            showStartingPage, session
         }),
         dispatch => ({
-            push: bindActionCreators(push, dispatch)
+            push: bindActionCreators(push, dispatch),
+            authActions: bindActionCreators(authActions, dispatch),
+            sessionActions: bindActionCreators(sessionActions, dispatch)
         })
     )(AppBarComponent)
 )

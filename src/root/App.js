@@ -6,6 +6,7 @@ import { rootStyle as styles } from './theme'
 import Routes from './Routes'
 import AppBar from './AppBar'
 import ls from '../utils/ls'
+import Authorization from '../modules/Authorization'
 
 export class App extends React.Component {
     componentDidMount() {
@@ -24,9 +25,7 @@ export class App extends React.Component {
           <div className={classes.content}>
             <Routes />
           </div>
-          {/*<ErrorBoundary>*/}
-            {/*<DialogRoot />*/}
-          {/*</ErrorBoundary>*/}
+            <Authorization />
         </div>
         {/*<ErrorBoundary>*/}
           {/*<Snackbar />*/}
