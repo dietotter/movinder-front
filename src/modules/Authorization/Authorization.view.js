@@ -8,7 +8,7 @@ const styles = theme => ({
         position: 'fixed',
         left: '30%',
         right: '30%',
-        alignSelf: 'center'
+        top: '30%'
     }
 })
 
